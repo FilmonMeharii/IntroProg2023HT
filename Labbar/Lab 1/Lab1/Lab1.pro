@@ -4,4 +4,5 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        kap01Funk0chCppfiler.cpp \
         main.cpp
