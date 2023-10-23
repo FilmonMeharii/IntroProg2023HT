@@ -2,3 +2,5 @@
 Labbar/Lab 1/build-Lab1-Desktop_Qt_6_2_0_MinGW_64_bit-Debug/debug/main.o
 Labbar/Lab 1/build-Lab1-Desktop_Qt_6_2_0_MinGW_64_bit-Debug/debug/Lab1.exe
 *.exe
+*.pro
+*.pro
