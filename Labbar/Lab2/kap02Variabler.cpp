@@ -58,16 +58,34 @@ void preOchPostInkrementering(){
     int y= 10;
     int ppX =++x;
     int yPp = y++;
-int yefter =y;
+    int yefter =y;
     cout << ppX << endl;
     cout << yPp << endl;
     cout << yefter << endl;
 }
 
+void skrivHypotenusaBerakning(double x, double y){
+    double rKvadrat = (x*x) + (y*y);
+    double r = sqrt(rKvadrat);
+    cout << "x ar : " << x << " och y ar "<< y << "."<<endl;
+    cout << "Summan av kvadreterna blir " << rKvadrat << endl;
+    cout << "Vilket gor att hypotenusans blir " << r << endl ;
+}
 
+void provaAnropaHypotenusaBerakning(){
+    skrivHypotenusaBerakning(4, 3);
+    double a= 1;
+    double b= 2;
+    skrivHypotenusaBerakning(a, b);
+    double x= 2;
+    double y= 3;
+    skrivHypotenusaBerakning(y,x);
+}
 void ingangTillVariabler(){
     cout << "ingangTillVariabler"<<endl;
-    preOchPostInkrementering();
+
+    provaAnropaHypotenusaBerakning();
+    //preOchPostInkrementering();
     //okaHeltalsVariabel();
     //lasString();
     //provaTilldelning();
