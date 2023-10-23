@@ -45,10 +45,31 @@ void lasString(){
     cout << "Hej " << fornamn << " "<<  efternamn << "!" << endl;
 }
 
+void okaHeltalsVariabel(){
+    int x;
+    cout << "knappa in siffra for x: ";
+    cin >> x;
+    x+=10;
+    cout <<"ny varde for x ar: "<< x<<endl;
+}
+
+void preOchPostInkrementering(){
+    int x= 10;
+    int y= 10;
+    int ppX =++x;
+    int yPp = y++;
+int yefter =y;
+    cout << ppX << endl;
+    cout << yPp << endl;
+    cout << yefter << endl;
+}
+
 
 void ingangTillVariabler(){
     cout << "ingangTillVariabler"<<endl;
-    lasString();
+    preOchPostInkrementering();
+    //okaHeltalsVariabel();
+    //lasString();
     //provaTilldelning();
     //lasOchSummera();
     //lasochBytVarden();
