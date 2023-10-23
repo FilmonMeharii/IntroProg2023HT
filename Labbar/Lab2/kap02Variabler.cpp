@@ -23,8 +23,33 @@ void lasOchSummera(){
     cout << "Summan ar : "<< x+y << endl;
 }
 
+void lasochBytVarden(){
+    int x, y;
+    cout << " Ange x : ";
+    cin >> x;
+    cout << "Ange y: ";
+    cin>>y;
+    int temp = x;
+    x=y;
+    y=temp;
+    cout << "x ar "<< x << " och y ar " << y << endl;
+}
+
+void lasString(){
+    string fornamn;
+    cout<< "Ange ditt fornamn:" ;
+    cin >> fornamn;
+    string efternamn;
+    cout << "Tack " << fornamn << ", ange nu ditt efternamn: " ;
+    cin>> efternamn;
+    cout << "Hej " << fornamn << " "<<  efternamn << "!" << endl;
+}
+
+
 void ingangTillVariabler(){
     cout << "ingangTillVariabler"<<endl;
-    provaTilldelning();
-    lasOchSummera();
+    lasString();
+    //provaTilldelning();
+    //lasOchSummera();
+    //lasochBytVarden();
 }
