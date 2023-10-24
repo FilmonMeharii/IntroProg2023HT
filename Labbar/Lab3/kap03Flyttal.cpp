@@ -42,12 +42,65 @@ void beraknaBokkostnad(){
     kostnadPerTimme = pris/(totalAntalTimmar/60);
     cout << "Du beraknas agna boken ca "<<totalAntalTimmar<<endl;
     cout << " Boken beraknas darfor kosta dig " << setprecision(2)<< kostnadPerTimme << "kr/timme"<<endl;
-
 }
+
+void undersokFlyttalstyper(){
+    cout << "En float upptar " << 8*sizeof (float)<< " bit." <<endl;
+    cout << "En double upptar "<< 8*sizeof (double)<<" bit."<<endl;
+    cout << "En long double upptar "<< 8 *sizeof (long double) << " bit."<<endl;
+}
+
+void provaNoggrannhet () {
+    double nollKommaEtt = 0.1;
+    double nollKommaTreA = 0.3;
+    double nollKommaTreB = 3* nollKommaEtt ;
+    cout << endl ;
+    cout << " Skriver ut 0.1 och 0.3 och 0.3: " << endl ;
+    cout << nollKommaEtt << endl ;
+    cout << nollKommaTreA << endl ;
+    cout << nollKommaTreB << endl ;
+    cout << setprecision (17) ;
+    cout << endl ;
+    cout << " Skriver ut 0.1 och 0.3 och 0.3 igen :" << endl ;
+    cout << nollKommaEtt << endl ;
+    cout << nollKommaTreA << endl ;
+    cout << nollKommaTreB << endl ;
+}
+void provaInfinity () {
+    double noll = 0;
+    double tva = 2;
+    cout << endl ;
+    cout << " Division med noll :" << endl ;
+    cout << noll / noll << endl ;
+    cout << tva / noll << endl ;
+    cout << - tva / noll << endl ;
+    cout << endl ;
+    cout << "En liten lek med oä ndligheten :" << endl ;
+    double oo = tva / noll ;
+    cout << tva * oo << endl ;
+    cout << oo + oo << endl ;
+    cout << oo - oo << endl ;
+    cout << -oo - oo << endl ;
+    cout << endl ;
+    cout << " Division med oä ndligheten :" << endl ;
+    cout << tva / oo << endl ;
+    cout << - tva / oo << endl ;
+    cout << oo / oo << endl ;
+    cout << -oo / oo << endl ;
+    cout << endl ;
+}
+void provaFlyttal () {
+    cout << endl << " provaFlyttal " << endl ;
+    provaNoggrannhet () ;
+    provaInfinity () ;
+}
+
 
 void ingangTillFlyttal(){
     cout << endl << "ingangTillFlyttal...."<<endl;
-    beraknaBokkostnad();
+   provaFlyttal();
+    //undersokFlyttalstyper();
+    //beraknaBokkostnad();
     //provaUtskriftAvFlyttal();
 
 }
