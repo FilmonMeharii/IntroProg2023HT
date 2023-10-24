@@ -81,10 +81,41 @@ void provaAnropaHypotenusaBerakning(){
     double y= 3;
     skrivHypotenusaBerakning(y,x);
 }
+
+int GLOBAL_VARIABEL{0};
+void funkC(){
+    int x{7};
+    cout << "funkC: x ar "<< x << endl;
+    cout << "funkB GLOBAL_VARIABEL ar " << GLOBAL_VARIABEL << endl;
+
+    GLOBAL_VARIABEL = 77;
+}
+
+void funkB(){
+    int x{5};
+    GLOBAL_VARIABEL = 15;
+
+    cout << " funkB x ar " << x << endl;
+    cout << "funkB GLOBAL_VARIABEL ar " << GLOBAL_VARIABEL << endl;
+
+    funkC();
+
+    cout << " funkB x ar " << x << endl;
+    cout << "funkB GLOBAL_VARIABEL ar " << GLOBAL_VARIABEL << endl;
+}
+
+void funkA(){
+    funkB();
+    funkC();
+}
+
+//5 15 7 15 5 77 7 77
+
+
 void ingangTillVariabler(){
     cout << "ingangTillVariabler"<<endl;
-
-    provaAnropaHypotenusaBerakning();
+    funkA();
+    //provaAnropaHypotenusaBerakning();
     //preOchPostInkrementering();
     //okaHeltalsVariabel();
     //lasString();
