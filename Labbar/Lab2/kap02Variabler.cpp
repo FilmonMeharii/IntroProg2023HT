@@ -147,7 +147,6 @@ void anvandStatic(){
 void provaStatic(){
     anvandStatic();
     anvandStatic();
-    anvandStatic();
 }
 void ingangTillVariabler(){
     cout << "ingangTillVariabler"<<endl;
