@@ -85,6 +85,8 @@ void provaAnropaHypotenusaBerakning(){
 int GLOBAL_VARIABEL{0};
 void funkC(){
     int x{7};
+    cout << " funkC: x lagras pa adress " << &x << endl;
+
     cout << "funkC: x ar "<< x << endl;
     cout << "funkB GLOBAL_VARIABEL ar " << GLOBAL_VARIABEL << endl;
 
@@ -93,6 +95,8 @@ void funkC(){
 
 void funkB(){
     int x{5};
+    cout << " funkB: x lagras pa adress " << &x << endl;
+
     GLOBAL_VARIABEL = 15;
 
     cout << " funkB x ar " << x << endl;
@@ -102,19 +106,54 @@ void funkB(){
 
     cout << " funkB x ar " << x << endl;
     cout << "funkB GLOBAL_VARIABEL ar " << GLOBAL_VARIABEL << endl;
+
 }
 
 void funkA(){
     funkB();
     funkC();
+    cout << " funkA : GLOBAL_VARIABEL lagras på adress "
+         << & GLOBAL_VARIABEL << endl ;
 }
-
 //5 15 7 15 5 77 7 77
 
+/*int A = 1;
+void demonstreraSynlighetsomradeA () {
+    int b = A;
+    { // krullparentesblock
+        int c = b;
+    }
+    int d = c;
+}
+void demonstreraSynlighetsomradeB () {
+    int e = d;
+}
+int H = I;
+int I = b;
+int J = A;*/
+int ANTAL_ANROP =0;
+void raknaAnrop(){
+    ANTAL_ANROP +=1;
+    cout << "Jag har nu anropats " << ANTAL_ANROP << " ganger. " << endl;
+}
 
+void anvandStatic(){
+    static int a = 42;
+    cout << "forst " << a << " ";
+    a=108;
+    cout << "sedan " << a << endl;
+}
+
+void provaStatic(){
+    anvandStatic();
+    anvandStatic();
+    anvandStatic();
+}
 void ingangTillVariabler(){
     cout << "ingangTillVariabler"<<endl;
-    funkA();
+    provaStatic();
+    //raknaAnrop();
+    //funkA();
     //provaAnropaHypotenusaBerakning();
     //preOchPostInkrementering();
     //okaHeltalsVariabel();
