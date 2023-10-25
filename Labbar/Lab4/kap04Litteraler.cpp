@@ -93,8 +93,35 @@ void testaBitFunktionerna () {
     cout << endl ;
 }
 
+
+unsigned int farginfoFranRGBO ( unsigned int r , unsigned int g , unsigned
+                                int b , unsigned int opacity ){
+    return (opacity <<24) | (r<<16) | (g<<8) |b;
+}
+unsigned int blaFranFarginfo ( unsigned int farginfo ){
+    return farginfo & 0xFF;
+}
+unsigned int gronFranFarginfo ( unsigned int farginfo ){
+    return (farginfo >> 8) & 0xFF;
+}
+unsigned int rodFranFarginfo ( unsigned int farginfo ){
+    return (farginfo >>16 )& 0xFF;
+}
+unsigned int opacityFranFarginfo ( unsigned int farginfo ){
+    return (farginfo >> 24)& 0xFF;
+}
+void testaFargFunktionerna () {
+    cout << " testar fargfunktionerna ." << endl ;
+    unsigned int farg = farginfoFranRGBO (10 ,20 ,30 ,40) ;
+    cout << rodFranFarginfo ( farg ) << endl ;
+    cout << gronFranFarginfo ( farg ) << endl ;
+    cout << blaFranFarginfo ( farg ) << endl ;
+    cout << opacityFranFarginfo ( farg ) << endl ;
+    cout << endl ;
+}
 void provaLitteraler(){
-    testaBitFunktionerna();
+    testaFargFunktionerna();
+    //testaBitFunktionerna();
     //provaBitvisLogik();
     //provaHexLitteraler();
     //provaHexUtskrift();
