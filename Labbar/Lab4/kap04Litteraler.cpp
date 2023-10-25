@@ -36,9 +36,46 @@ void provaHexUtskrift(){
     cout << dec << setfill(' ');
 }
 
-void provaLitteraler(){
+void provaHexLitteraler () {
+    cout << " Provar hexlitteraler ." << endl ;
+    unsigned int x = 0xa7 ;
+    cout << "x = " << x << endl ;
 
-    provaHexUtskrift();
-     //provaLiteraler();
+    // Hur stor plats tar en int ?
+    int antalOktetter = sizeof ( unsigned int );
+    int antalHex = 2* antalOktetter ;
+    int antalBit = 8* antalOktetter ;
+    cout << "En ( unsigned ) int upptar " << antalOktetter
+         << " oktetter ( dvs " << antalHex << " hex - siffror , eller "
+            << antalBit << " bit )" << endl ;
+    cout << "x = " << hex << setw ( antalHex ) << setfill ('_') << x <<
+            endl << endl ;
+    cout << dec << setfill (' ');
+}
+
+void provaBitvisLogik(){
+    cout << "Prova bitvis logik "<<endl;
+
+    unsigned int x = 0x123456;
+    unsigned int mask = 0xF0;
+    int antalSiffror = 2*sizeof (int);
+    cout << hex << setfill('-');
+
+    cout << "1) " << setw(antalSiffror) << x << endl;
+    cout << "2) " << setw(antalSiffror) << mask << endl;
+    cout << "3) " << setw(antalSiffror) << ~mask<< endl;
+    cout << "4) " << setw(antalSiffror) << (x|mask) << endl;
+    cout << "5) " << setw(antalSiffror) << (x&~mask) << endl;
+    cout << "6) " << setw(antalSiffror) << (x^mask) << endl;
+
+    cout << endl;
+    cout << dec << setfill(' ');
+}
+
+void provaLitteraler(){
+    provaBitvisLogik();
+    //provaHexLitteraler();
+    //provaHexUtskrift();
+    //provaLiteraler();
     //provaRest();
 }
