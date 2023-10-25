@@ -47,7 +47,7 @@ void provaHexLitteraler () {
     int antalBit = 8* antalOktetter ;
     cout << "En ( unsigned ) int upptar " << antalOktetter
          << " oktetter ( dvs " << antalHex << " hex - siffror , eller "
-            << antalBit << " bit )" << endl ;
+         << antalBit << " bit )" << endl ;
     cout << "x = " << hex << setw ( antalHex ) << setfill ('_') << x <<
             endl << endl ;
     cout << dec << setfill (' ');
@@ -72,8 +72,30 @@ void provaBitvisLogik(){
     cout << dec << setfill(' ');
 }
 
+unsigned int xMedEttstalldBit ( unsigned int x , int bitnummer ){
+    unsigned int mask = 1 << bitnummer;
+    return x|mask;
+}
+unsigned int xMedNollstalldBit ( unsigned int x , int bitnummer ){
+    unsigned int mask = ~(1 << bitnummer);
+    return x&mask;;
+}
+void testaBitFunktionerna () {
+    cout << " testar bitfunktionerna ." << endl ;
+    cout << "Bor bli 1: " << xMedEttstalldBit (0 , 0) << endl ;
+    cout << "Bor bli 2: " << xMedEttstalldBit (0 , 1) << endl ;
+    cout << "Bor bli 4: " << xMedEttstalldBit (0 , 2) << endl ;
+    cout << "Bor bli 1024: " << xMedEttstalldBit (0 , 10) << endl ;
+    cout << "Bor bli 1025: " << xMedEttstalldBit (1024 , 0) << endl ;
+    cout << "Bor bli 1025: " << xMedEttstalldBit (1025 , 0) << endl ;
+    cout << "Bor bli 1: " << xMedNollstalldBit (1025 , 10) << endl ;
+    cout << "Bor bli 1: " << xMedNollstalldBit (1 , 10) << endl ;
+    cout << endl ;
+}
+
 void provaLitteraler(){
-    provaBitvisLogik();
+    testaBitFunktionerna();
+    //provaBitvisLogik();
     //provaHexLitteraler();
     //provaHexUtskrift();
     //provaLiteraler();
