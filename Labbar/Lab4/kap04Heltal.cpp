@@ -41,8 +41,40 @@ void provaHeltal(){
     //provaStorreAnStorst();
 }
 
+void skrivUtVaxel(int antalkronor){
+
+    int kronorKvarAttBetala =antalkronor;
+    int antal500 = kronorKvarAttBetala/500;
+    kronorKvarAttBetala -= antal500*500;
+    cout << antal500 <<"*"<<500<< endl;
+    int antal200 = kronorKvarAttBetala/200;
+    kronorKvarAttBetala -= antal200*200;
+    cout <<  antal200 <<"*"<< 200 << endl;
+    int antal100 = kronorKvarAttBetala/100;
+    kronorKvarAttBetala -= antal100*100;
+    cout <<  antal100 <<"*"<< 100 << endl;
+    int antal20 = kronorKvarAttBetala/20;
+    kronorKvarAttBetala -= antal20*20;
+    cout << antal20 <<"*"<<20<< endl;
+    int antal10 = kronorKvarAttBetala/10;
+    kronorKvarAttBetala -= antal10*10;
+    cout << antal10 <<"*"<<10<< endl;
+    int antal5 = kronorKvarAttBetala/5;
+    kronorKvarAttBetala -= antal5*5;
+    cout <<  antal5 <<"*"<< 5 << endl;
+    int antal2 = kronorKvarAttBetala/2;
+    kronorKvarAttBetala -= antal2*2;
+    cout << antal2 <<"*"<<2<< endl;
+    int antal1 = kronorKvarAttBetala/1;
+    kronorKvarAttBetala -= antal1*1;
+    cout << antal1 <<"*"<<1<< endl;
+
+    cout << kronorKvarAttBetala<< endl;
+    }
+
 void ingangTillHeltal () {
     cout << endl << " ingangTillHeltal ....... " << endl ;
-    provaHeltal();
+    skrivUtVaxel(947);
+    //provaHeltal();
     //undersokHeltalsTyper();
 }
