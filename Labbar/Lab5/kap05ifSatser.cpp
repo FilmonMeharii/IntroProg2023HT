@@ -90,10 +90,73 @@ void testaUngefarLika () {
     else cout << " ungefarLika har minst en BUGG !!!!! " << endl ;
     cout << endl ;
 }
+void provaUngefarLika () {
+    cout << " Provar ungefarLika ." << endl ;
+    double a = 0.3;
+    double b = 0.1 + 0.1 + 0.1;
+    if ( ungefarLika (a ,b) ){
+        cout << "a och b har ungef är samma vä rden ." << endl ;
+        if (a == b)
+            cout << "De har faktiskt exakt samma vä rden !" << endl ;
+        else
+            cout << " Men bara ungef är." << endl ;
+    }
+    else cout << "a och b ar inte sarskilt lika " << endl ;
+    cout << endl ;
+}
+
+void provarOavsiktligBitvisLogik(){
+    cout << "Provar oavsiklig bitvis logik." << endl;
+
+    int antalApplen =4;
+    int antalMeloner = 1;
+    if(antalApplen && antalMeloner)
+        cout << "1Jag ser att du har kopt olika slags frukter "<<endl;
+    if(antalApplen  & antalMeloner)
+        cout << "2Jag ser att du har kopt olika slags frukter "<<endl;
+
+    antalApplen = 5;
+    if(antalApplen & antalMeloner)
+        cout << "3Jag ser att du har kopt olika slags frukter "<<endl;
+cout << endl;
+
+}
+
+void provarOavsiktTilldelning(){
+    cout << "Provar oavsiktlig tilldelning. "<< endl;
+
+    const double summa = 3 + 4 + 5 + 3 ;
+    const int antal = 4;
+    if (antal == 0)
+        cout << "medelvardet kan ej beraknas" <<endl;
+    else{
+        double medlevarde = summa/antal;
+        cout << "medelvarde ar " << medlevarde << endl;
+    }
+    cout << endl;
+
+}
+
 void ingangTillIfSatser(){
-    cout << endl << "ingang Till If Satser .........."<< endl<< endl;
-    testaUngefarLika();
+    cout << endl << "Ingang Till If Satser .........."<< endl<< endl;
+   provarOavsiktTilldelning();
+    //provarOavsiktligBitvisLogik();
+    //provaUngefarLika();
+    //testaUngefarLika();
     //provaAttJamforaFlyttal();
     //provaBooluttryck();
     //tempratur3();
+    /*
+    if (5)
+        cout << " Denna rad skrivs ut" << endl ;
+    if (0)
+        cout << "Ha , det står fel i kompendiet !" << endl ;
+
+    int antalFrukter=0;
+    if ( antalFrukter != 0)
+        cout << " Jag ser att du har köpt frukt !" << endl ;
+    // alternativ kod
+    if ( antalFrukter )
+        cout << " Jag ser att du har köpt frukt !" << endl ;
+        */
 }
