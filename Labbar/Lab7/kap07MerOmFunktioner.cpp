@@ -28,7 +28,6 @@ void bytVarden(int &a, int &b){
     a=b;
     b=temp;
 }
-
 void provaBytVarden(){
     int a{42};
     int b{108};
@@ -37,10 +36,55 @@ void provaBytVarden(){
     cout <<" b  ar nu "<< b << endl;
     assert(a==108 && b==42 );
 }
+
+void hejTal(int x){
+    cout << "Hej heltal "<< x<<endl;
+}
+void hejTal(double x){
+    cout << "Hej pa dig flyttal " << x<<endl;
+}
+void hejTal(double x, double y){
+    cout << "Hej pa er flyttal "<< x << ","<<y << endl;
+}
+void hejTal(int x, int y, int z){
+    cout << "Hej alla tre heltal "<< x << ","<<y <<","<<z<< endl;
+}
+void testaHejTal(){
+    hejTal(2);
+    hejTal(2.1);
+    hejTal(2, 3);
+    //hejTal(2.2, 3.1, 4.3);
+    hejTal(2.0, 3.0, 4.0);
+    double x=2;
+    hejTal(x, 3.0,4.0);
+}
+
+void skrivResultat ( int x) {
+    cout << " resultatet blev " << x << endl ;
+}
+int sju () {
+    cout << " returnerar 7 ";
+    return 7;
+}
+int tva () {
+    cout << " returnerar 2 ";
+    return 2;
+}
+int summan ( int x , int y ){
+    int summa = x + y;
+    cout << " returnerar summan " << summa ;
+    return summa ;
+}
+void provaNastlatAnrop () {
+    skrivResultat ( summan ( tva () , sju () ) ) ;
+}
+
 void ingangTillMerOmFunktioner () {
 
     cout << endl << " ingangTillMerOmFunktioner ....... " << endl ;
-    provaBytVarden();
+    provaNastlatAnrop();
+    //testaHejTal();
+    //provaBytVarden();
     //provaReferensanrop();
     //provaVardeanrop();
 }
