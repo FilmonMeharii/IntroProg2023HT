@@ -79,10 +79,42 @@ void provaNastlatAnrop () {
     skrivResultat ( summan ( tva () , sju () ) ) ;
 }
 
+double storst ( double a , double b) {
+    if(a>b)
+        return a;
+    return b;
+}
+double storst ( double a , double b , double c){
+    if(storst(a,b)>c)
+        return storst(a,b);
+    return c;
+}
+double storst ( double a , double b , double c , double d){
+    if(storst(a,b,c)>d)
+        return storst(a,b,c);
+    return d;
+}
+double storst ( double a , double b , double c , double d , double e ){
+    if(storst(a,b,c,d)>e)
+        return storst(a,b,c,d);
+    return e;
+}
+void provaAllaStorst () {
+    cout << storst ( 3 ,7 ) << endl ; // 7
+    cout << storst ( 3, 8, 7 , 5 ) << endl ; // 8
+    cout << storst (1 , 3, 2, 9, 8) << endl ; // 9
+    cout << storst (5.2 , 4.3 , 10.5 , 10.4) << endl ; // 10.5
+    assert ( storst (2.0 , 2.5 , 1.0) > 2.4 );
+    assert ( storst (2 , 3, 1, 8 ,3) == 8 );
+}
+
+
+
 void ingangTillMerOmFunktioner () {
 
     cout << endl << " ingangTillMerOmFunktioner ....... " << endl ;
-    provaNastlatAnrop();
+    provaAllaStorst();
+    //provaNastlatAnrop();
     //testaHejTal();
     //provaBytVarden();
     //provaReferensanrop();
