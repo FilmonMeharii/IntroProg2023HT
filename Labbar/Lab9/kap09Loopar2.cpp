@@ -8,6 +8,7 @@ using namespace std;
 
 //returnerar tal mellan 0 och 100 och n (exklusive n)
 int nyttTal(int n){
+    srand(time(nullptr));
     int slumptal =rand()%(n+1);
     return slumptal;
 }
