@@ -68,7 +68,7 @@ void ritaMedText(){
     cout << "ritaMedText."<<endl;
     cout <<endl;
     skrivMultipliktionsmatris();
-     fyllRektangel(4,20);
+    fyllRektangel(4,20);
     cout <<endl;
     ritaRektangel(4,20);
     cout <<endl;
@@ -81,7 +81,7 @@ void ritaMedText(){
 
 // ******** estimera PI ************
 double estimatAvCirkelareaFranRadie ( int radie ) {
-   int punkterinomCirkeln=0;
+    int punkterinomCirkeln=0;
     for(int y=-radie; y<=radie; ++y)
         for(int x=-radie; x<=radie; ++x){
             if(x*x+y*y<=radie*radie){
@@ -92,14 +92,13 @@ double estimatAvCirkelareaFranRadie ( int radie ) {
 // Returnerar ett estimat av talet pi. Stö rre radie
 // ger ett bä ttre estimat .
 double estimatAvPiFranRadie ( int radie ) {
-// pi*r2 = area
-// pi = area /r2
+    // pi*r2 = area
+    // pi = area /r2
     double cirkelAreaEstimat = estimatAvCirkelareaFranRadie(radie);
     double piEstimat = cirkelAreaEstimat;
     return piEstimat;
-// TODO
-}
 
+}
 void gorFleraEstimatAvPi(){
     for(int radie =1; radie <10000; radie = radie*2){
         double pi = estimatAvPiFranRadie(radie);
@@ -107,8 +106,48 @@ void gorFleraEstimatAvPi(){
     }
 }
 
+
+bool detArEttPrimtal(int n){
+    if(n <=1){
+        return false;
+    }
+    for(int i=2; i*i<=n; i++){
+        if(n%i==0 )
+            return false;
+    }
+    return true;
+}
+
+
+void provaPrimtal(){
+    cout << endl<< "provaPrimtal " << endl
+         << "knappa in tal, avsluta med 0"<< endl;
+    while(true){
+        cout << "ge tal:";
+        int tal = 1;
+        cin >> tal;
+        if(tal<=0)
+            break;
+        if(detArEttPrimtal(tal))
+            cout <<tal<<"ar primtal"<<endl;
+        else cout << tal << "kan faktoriseras" <<endl;
+    }
+    cout << "(avslutar provaPrimtal)" << endl;
+}
+
+void testaPrimtal(){
+    cout <<"testPrimtal"<<endl;
+    assert(detArEttPrimtal(7));
+    assert(detArEttPrimtal(7919));
+    assert(!detArEttPrimtal(7913));
+    assert(!detArEttPrimtal(10201));
+    cout << "testaPrimtal lyckades"<<endl;
+}
+
+
 void ingangTillLoopar3() {
     cout << endl << " ingangTillLoopar2 +++++ " << endl ;
-    gorFleraEstimatAvPi();
+    testaPrimtal();
+    //gorFleraEstimatAvPi();
     //ritaMedText();
 }
