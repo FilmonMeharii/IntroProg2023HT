@@ -2,6 +2,7 @@
 # include <cstdlib >
 # include <cmath >
 # include <cassert >
+#include <ctime>
 
 
 using namespace std ;
@@ -86,11 +87,29 @@ void jamforFleraSummaberakningar () {
 }
 
 unsigned int PSEUDOSLUMPTAL = 42;
-
-unsigned int ettSlumptal(){
-    PSEUDOSLUMPTAL = 1664525*PSEUDOSLUMPTAL + 1013904223;
-    return PSEUDOSLUMPTAL;
+void froaSlumptalsgeneratorn(unsigned int fro){
+    PSEUDOSLUMPTAL = fro;
 }
+unsigned int ettSlumptal(){
+    cout <<"returnerar rand"<<endl;
+    return rand();
+    //PSEUDOSLUMPTAL = 1664525*PSEUDOSLUMPTAL + 1013904223;
+    //return PSEUDOSLUMPTAL;
+}
+
+unsigned int froaSlumptal(){
+    froaSlumptalsgeneratorn(time(nullptr));
+    return ettSlumptal();
+}
+void provaFroaSlumptal(){
+    cout << "ProvaFroaslumptal "<< endl;
+    cout << "Skriver 5 froade slumptal" << endl;
+
+    for (int i =0; i<5; ++i)
+        cout << froaSlumptal() << " ";
+    cout << endl;
+}
+
 /*
 void genereraNagraSlumptal(){
     cout << "Skriver 5 stora slumptal: "<<endl;
@@ -150,8 +169,8 @@ void provaMinaSlumptal(){
 
 void ingangTillLoopar () {
     cout << endl << " ingangTillLoopar +++++ " << endl ;
-
-    provaMinaSlumptal();
+    provaFroaSlumptal();
+    //provaMinaSlumptal();
     // jamforFleraSummaberakningar();
     //kylskapMedWhileVillkor();
     //kylskapMedWhileTrue();
