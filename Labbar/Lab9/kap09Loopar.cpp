@@ -85,11 +85,74 @@ void jamforFleraSummaberakningar () {
         jamforSummaberakningar (n) ;
 }
 
+unsigned int PSEUDOSLUMPTAL = 42;
+
+unsigned int ettSlumptal(){
+    PSEUDOSLUMPTAL = 1664525*PSEUDOSLUMPTAL + 1013904223;
+    return PSEUDOSLUMPTAL;
+}
+/*
+void genereraNagraSlumptal(){
+    cout << "Skriver 5 stora slumptal: "<<endl;
+
+    for (int i=0; i<5; i++)
+        cout << ettSlumptal()<<" ";
+    cout <<endl;
+    cout << "Skriver 30 mindre slumptal: "<<endl;
+
+    for(int i=0; i<6; ++i)
+        cout << ettSlumptal() % 10 << " ";
+    cout << endl;
+}
+*/
+void genereraNagraSlumptal(){
+    cout << "Skriver 5 tarningskast: "<<endl;
+
+    for (int i=0; i<5; i++){
+        int tarning =(ettSlumptal()%6)+1;
+        cout << tarning;
+    }
+    cout <<endl;
+
+    cout << "Skriver 30 mindre slumptal: "<<endl;
+
+    for(int i=0; i<30; ++i){
+        int tarning =(ettSlumptal()%6)+1;
+        cout << tarning << " ";
+    }
+    cout << endl;
+}
+
+void undersokSlumptalsgeneratorn(){
+    cout << " undersokSlumptalsgeneratorn " << endl ;
+    unsigned long int antalAnrop = 0;
+    unsigned long int foregaendeAntal = 0;
+    int antal42or = 0;
+    while ( antal42or < 4) {
+        unsigned int i = ettSlumptal () ;
+        antalAnrop += 1;
+        if (i ==42) {
+            cout << "sag 42 efter " << antalAnrop << " anrop ." ;
+            if ( antal42or ==0)
+                cout << " ( den forsta 42: an)" << endl ;
+            else cout << " Dvs " << antalAnrop - foregaendeAntal << " steg efter foregaende 42: a" << endl ;
+            foregaendeAntal = antalAnrop ;
+            antal42or += 1;
+        }
+    }
+}
+void provaMinaSlumptal(){
+    cout << "provaMinaSlumptal "<< endl;
+    genereraNagraSlumptal();
+    undersokSlumptalsgeneratorn();
+}
+
 
 void ingangTillLoopar () {
     cout << endl << " ingangTillLoopar +++++ " << endl ;
 
-    jamforFleraSummaberakningar();
-      //kylskapMedWhileVillkor();
+    provaMinaSlumptal();
+    // jamforFleraSummaberakningar();
+    //kylskapMedWhileVillkor();
     //kylskapMedWhileTrue();
 }
