@@ -62,7 +62,6 @@ void jamforIntegrralberakningar(double a, double b){
     cout << "integralX2FranLoop ("<<a<< " , "<<b<<") = "
          << resultatLoop << ", diff =" << diff <<endl;
 }
-
 void jamforFleraIntegralBerakningar(){
     jamforIntegrralberakningar(-1,1);
     jamforIntegrralberakningar(0,1);
@@ -70,8 +69,53 @@ void jamforFleraIntegralBerakningar(){
     jamforIntegrralberakningar(2,10);
     cout << endl;
 }
+
+//Kvadratroten
+double kvadratroten(double x){
+    double k=0;
+    double area =1.0;
+    for(float i =0; i<10; ++i){
+        k=x/area;
+        area =(area+k)/2.0;
+    }
+    return area;
+}
+void jamforKvadratrotsberakningar(double x){
+    double resultat = kvadratroten(x);
+    double diff = resultat - sqrt(x);
+    cout <<"Kvadratroten(" << x<< ") beraknad till " << resultat << " diff " << diff << endl;
+}
+void jamforFleraKvadratrotsberakningar(){
+    jamforKvadratrotsberakningar(2);
+    jamforKvadratrotsberakningar(10);
+    jamforKvadratrotsberakningar(100);
+    cout << endl;
+}
+
+// Skriver ut de n förrsta fibonacci - talen numrerade från 1.
+// skrivUtFibonacci (6) skall skriva ut 1:1 , 2:1 , 3:2 , 4:3 , 5:5 , 6:8
+
+void skrivUtFibonaci(int n){
+    if(n>=1)
+        cout << "1:1";
+    if(n>=2)
+        cout << ", 2:1";
+    int x2 = 1;
+    int x1 = 1;
+    int tal;
+    for (int i = 3; i<=n; ++i){
+        tal = x1+x2;
+        x2=x1;
+        x1=tal;
+        cout << ", "<< i  << ":" << tal;
+    }
+    cout << endl;
+}
+
 void ingangTillLoopar2() {
     cout << endl << " ingangTillLoopar2 +++++ " << endl ;
-    jamforFleraIntegralBerakningar();
+    skrivUtFibonaci(6);
+    //jamforFleraKvadratrotsberakningar();
+    //jamforFleraIntegralBerakningar();
     //utforEnSpelGissning();
 }
