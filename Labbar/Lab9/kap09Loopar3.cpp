@@ -15,7 +15,6 @@ void skrivMultipliktionsmatris(){
         cout <<endl;
     }
     cout <<endl;
-
 }
 void fyllRektangel(int hojd, int bredd){
     cout << "Fylld rektangel"<< endl;
@@ -65,7 +64,6 @@ void fyllCirkel(int radie){
     }
     cout <<endl;
 }
-
 void ritaMedText(){
     cout << "ritaMedText."<<endl;
     cout <<endl;
@@ -81,7 +79,36 @@ void ritaMedText(){
 
 }
 
+// ******** estimera PI ************
+double estimatAvCirkelareaFranRadie ( int radie ) {
+   int punkterinomCirkeln=0;
+    for(int y=-radie; y<=radie; ++y)
+        for(int x=-radie; x<=radie; ++x){
+            if(x*x+y*y<=radie*radie){
+                punkterinomCirkeln ++;
+            }
+        }
+}
+// Returnerar ett estimat av talet pi. Stö rre radie
+// ger ett bä ttre estimat .
+double estimatAvPiFranRadie ( int radie ) {
+// pi*r2 = area
+// pi = area /r2
+    double cirkelAreaEstimat = estimatAvCirkelareaFranRadie(radie);
+    double piEstimat = cirkelAreaEstimat;
+    return piEstimat;
+// TODO
+}
+
+void gorFleraEstimatAvPi(){
+    for(int radie =1; radie <10000; radie = radie*2){
+        double pi = estimatAvPiFranRadie(radie);
+        cout << " radie = " << radie << ", pi estimeras till "<< pi <<endl;
+    }
+}
+
 void ingangTillLoopar3() {
     cout << endl << " ingangTillLoopar2 +++++ " << endl ;
-    ritaMedText();
+    gorFleraEstimatAvPi();
+    //ritaMedText();
 }
