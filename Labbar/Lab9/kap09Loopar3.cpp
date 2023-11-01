@@ -88,6 +88,7 @@ double estimatAvCirkelareaFranRadie ( int radie ) {
                 punkterinomCirkeln ++;
             }
         }
+    return punkterinomCirkeln;
 }
 // Returnerar ett estimat av talet pi. Stö rre radie
 // ger ett bä ttre estimat .
@@ -146,7 +147,7 @@ void testaPrimtal(){
 
 
 void ingangTillLoopar3() {
-    cout << endl << " ingangTillLoopar2 +++++ " << endl ;
+    cout << endl << " ingangTillLoopar3 +++++ " << endl ;
     testaPrimtal();
     //gorFleraEstimatAvPi();
     //ritaMedText();

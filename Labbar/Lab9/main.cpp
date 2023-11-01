@@ -7,12 +7,13 @@ using namespace std;
 void ingangTillLoopar();
 void ingangTillLoopar2();
 void ingangTillLoopar3();
+void ingangTillLoopar4();
 void froaSlumptalsgeneratorn();
 
 int main()
 {
     cout << "Hello World!" << endl;
     //froaSlumptalsgeneratorn(time(nullptr));
-    ingangTillLoopar3();
+    ingangTillLoopar4();
     return 0;
 }
