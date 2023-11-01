@@ -80,7 +80,6 @@ bool innehaller ( const int arr [] , int antal , int x){
     return false;
 }
 
-
 void provaArrayFunktionerna () {
     cout << " prova Array Funktionerna " << endl ;
     cout << "(om programmet kraschar har du en bug)" << endl ;
@@ -110,9 +109,62 @@ void provaArrayFunktionerna () {
     cout << " testen provaArrayFunktionerna lyckades !" << endl ;
     cout << endl ;
 }
+void swap(int &a, int &b){
+    int temp = a;
+    a=b;
+    b= temp;
+}
+
+void sorteraMedSelectionsort ( int arr [] , int antal ){
+    for(int i=0; i<antal-1; i++){
+        int minIndex=i;
+        for(int j= i+1; j<antal; j++){
+            if(arr[j]<arr[minIndex]){
+                minIndex = j;
+            }
+        }
+        if(minIndex != i){
+            swap(arr[i], arr[minIndex]);
+        }
+    }
+}
+void sorteraMedBubbelsort ( int arr [] , int antal ){
+    for (int i = 0; i < antal - 1; ++i) {
+        bool swapped = false;
+        for (int j = 0; j < antal - i - 1; ++j) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+    }
+}
+void provaSortera ( bool anvandSelectionSort ){
+    const int storlek = 20;
+    int arr [ storlek ];
+    fyllMedSlumptal ( arr , storlek , 0, 100) ;
+    if ( arSorterad ( arr , storlek ))
+        cout << " BUGG Det verkar som om fyllMedSlumptal inte fungerar "
+             << endl ;
+    if ( anvandSelectionSort )
+        sorteraMedSelectionsort ( arr , storlek );
+    else sorteraMedBubbelsort ( arr , storlek ) ;
+    if ( arSorterad ( arr , storlek ))
+        cout << " Det verkar som om select - sorteringen fungerade " << endl
+                ;
+    else cout << " BUGG i select sorteringsalgoritmen " << endl ;
+}
+void provaSorteringsalgoritmer () {
+    provaSortera ( true ) ;
+    provaSortera ( false );
+}
+
 
 void ingangTillCArrayOchStdVector2 () {
     cout << endl << "IngangTillCArrayOchStdVector +++++ " << endl ;
-    provaArrayFunktionerna();
-
+    //provaArrayFunktionerna();
+    provaSorteringsalgoritmer();
 }
