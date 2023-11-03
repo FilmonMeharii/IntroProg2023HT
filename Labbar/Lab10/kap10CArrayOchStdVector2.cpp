@@ -25,6 +25,13 @@ void fyllMedSlumptal ( int arr [] , int antal , int minsta , int storsta ) {
         arr[i]=minsta + rand()%(storsta-minsta +1);
     }
 }
+
+void fyllMedUnikaSlumptal(int arr[], int antal, int minst, int storst){
+    for (int i= 0; i<antal; i++){
+        arr[i] = minst+ (rand()% storst);
+    }
+}
+
 int minst ( const int arr [] , int antal ){
     int min = arr[0];
     for(int i=0; i<antal; i++){
@@ -146,6 +153,7 @@ void provaSortera ( bool anvandSelectionSort ){
     const int storlek = 20;
     int arr [ storlek ];
     fyllMedSlumptal ( arr , storlek , 0, 100) ;
+    fyllMedUnikaSlumptal(arr, storlek,0,100);
     if ( arSorterad ( arr , storlek ))
         cout << " BUGG Det verkar som om fyllMedSlumptal inte fungerar "
              << endl ;
@@ -163,8 +171,9 @@ void provaSorteringsalgoritmer () {
 }
 
 
+
 void ingangTillCArrayOchStdVector2 () {
     cout << endl << "IngangTillCArrayOchStdVector +++++ " << endl ;
-    //provaArrayFunktionerna();
+    provaArrayFunktionerna();
     provaSorteringsalgoritmer();
 }
