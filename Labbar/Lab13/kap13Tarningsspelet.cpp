@@ -21,24 +21,31 @@ Triplett slumpadTriplett(){
     return treSlumptal;
 }
 int bruttovinstFranTriplett (const Triplett& tripplett){
-    int countSex = 0;
+    int count[7] ={ 0};
     for(int i=0; i<3; i++){
-        if(tripplett.m_varden[i]==6){
-            countSex++;
-        }
+        count[tripplett.m_varden[i]]++;
     }
-    if(countSex==3){
+    if(count[6]==3){
         return 100;
-    }else{
-        return 0;
+    }else if(count[tripplett.m_varden[0]] ==3 && tripplett.m_varden[0] !=6){
+        return 50;
+    }else if(count[tripplett.m_varden[0]]==2 || count[tripplett.m_varden[1]]==2
+             ||count[tripplett.m_varden[2]]==2){
+        return 20;
+    }else if(count[tripplett.m_varden[0]]==2 && count[6]==1){
+        return 20;
     }
+    return 0;
 }
 void skrivTriplett(const Triplett& tripplett){
+    cout << "Tarningarna blev ";
     for (int i=0; i<3; i++){
-        cout<<"Tarning "<< i +1 << ":  " <<tripplett.m_varden[i]<<endl;
+        cout<<endl<< tripplett.m_varden[i]<<endl;
         sleep_for(milliseconds(1000));
     }
+    cout<< endl;
 }
+
 bool boolFranUppmaning(const string& uppmaning){
     cout << uppmaning << "(ja/nej): "<< endl;
     string svar;
@@ -70,7 +77,7 @@ void spelaTarningensspelet(){
 }
 
 void ingangTillTarningsspelet(){
-    srand(static_cast<unsigned>(time(0)));
+    srand(time(0));
 
     cout << endl << " ingangTillTarningsspelet +++++ " << endl ;
     spelaTarningensspelet();
