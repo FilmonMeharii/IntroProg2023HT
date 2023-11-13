@@ -58,7 +58,7 @@ void skrivResultat(int bruttovinst, int kapital){
 }
 
 void spelaTarningensspelet(){
-    int kapital = 100;
+    int kapital = 10;
     cout << "Du har "<< kapital << " kronor " << endl;
     while(kapital >=10){
         bool villSpela = boolFranUppmaning("Vill du spela ");
@@ -76,9 +76,29 @@ void spelaTarningensspelet(){
     }
 }
 
+void skrivAnalysAvSpel(){
+    const int ANTAL_SPel = 1000000;
+    int totalNettovisnt = 0;
+
+    for(int i = 0; i< ANTAL_SPel; i++){
+        int kapital = 100;
+        while(kapital >=10){
+            Triplett triplett = slumpadTriplett();
+            int bruttovinst = bruttovinstFranTriplett(triplett);
+            kapital = kapital + bruttovinst - 10;
+        }
+        totalNettovisnt += kapital - 100;
+    }
+
+    cout << "Total nettovinst over en miljon spel: " << totalNettovisnt << " kronor" << endl;
+    cout << "Genomsnittlig nettovinst per spelomgang: " << static_cast<double>(totalNettovisnt) / ANTAL_SPel << " kronor" << endl;
+}
+
+
 void ingangTillTarningsspelet(){
     srand(time(0));
 
     cout << endl << " ingangTillTarningsspelet +++++ " << endl ;
     spelaTarningensspelet();
+    skrivAnalysAvSpel();
 }
