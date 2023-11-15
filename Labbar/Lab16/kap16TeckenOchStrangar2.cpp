@@ -70,9 +70,43 @@ void automattestaKonverteraTillRubrik () {
     cout << " testen av konverteraTillRubrik lyckades !" << endl ;
 }
 
+bool arVokal ( char ch ) {
+    const char vokal [] = "aeiouyAEIOUY";
+    for(int i=0; vokal[i]!=0; ++i){
+        if(ch ==vokal[i]){
+            return true;
+        }
+    }
+    return false;
+}
+bool arKonsonant ( char ch ) {
+   const  char konsonanter [] = "bcdfghjklmnpqrstvxzBCDFGHJKLMNPQRSTVXZ";
+    for(int i=0; konsonanter[i]!=0; ++i){
+        if(ch == konsonanter[i]){
+            return true;
+        }
+    }
+    return false;
+}
+void automattestaArVokalOchArKonsonant () {
+    cout << " automattestar arVokal och arKonsonant " << endl ;
+    char vokaler [] = "aeiouyAEIOUY";
+    char konsonanter [] = "bcdfghjklmnpqrstvxzBCDFGHJKLMNPQRSTVXZ";
+    char andraTecken [] = ". ,?!; ";
+    for (int i =0; vokaler [i] != 0; ++ i)
+        assert ( arVokal ( vokaler [i ]) );
+    for (int i =0; konsonanter [i] != 0; ++ i)
+        assert ( arKonsonant ( konsonanter [i ]) );
+    for (int i =0; andraTecken [i] != 0; ++ i)
+        assert ( ! arVokal ( andraTecken [i ]) && ! arKonsonant ( andraTecken [i ])
+                 );
+    cout << " testerna av arVokal / arKonsonant lyckades !" << endl ;
+}
+
 void ingangTillTeckenOchStrangar2() {
     cout << endl << " ingangTillTeckenOchStrangar2 +++++ " << endl ;
-    automattestaKonverteraTillRubrik();
+    automattestaArVokalOchArKonsonant();
+    //automattestaKonverteraTillRubrik();
     //automatestaKonverteraTillVersaler();
     //automatestaArLika();
     //provaFleraArLika();
