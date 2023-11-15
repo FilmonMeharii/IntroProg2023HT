@@ -47,10 +47,33 @@ void automatestaKonverteraTillVersaler(){
 
     cout << "testen av konverteraTillVersaler lyckades!"<<endl;
 }
+
+void konverteraTillRubrik ( char str []) {
+    for(int i=0; str[i] !=0; ++i)
+        if(i>0 && str[i-1]==' ')
+            str[i]=toupper(str[i]);
+        else
+            str[i]=tolower(str[i]);
+}
+void automattestaKonverteraTillRubrik () {
+    cout << " automattestar konverteraTillRubrik " << endl ;
+
+    char str1 [] = " this is a test ";
+    char str2 [] = " THIS IS A TEST ";
+    char rubrik [] = " This Is A Test ";
+
+    konverteraTillRubrik ( str1 );
+    konverteraTillRubrik ( str2 );
+
+    assert ( arLika ( str1 , rubrik ) );
+    assert ( arLika ( str2 , rubrik ) );
+    cout << " testen av konverteraTillRubrik lyckades !" << endl ;
+}
+
 void ingangTillTeckenOchStrangar2() {
     cout << endl << " ingangTillTeckenOchStrangar2 +++++ " << endl ;
-
-    automatestaKonverteraTillVersaler();
+    automattestaKonverteraTillRubrik();
+    //automatestaKonverteraTillVersaler();
     //automatestaArLika();
     //provaFleraArLika();
 }
