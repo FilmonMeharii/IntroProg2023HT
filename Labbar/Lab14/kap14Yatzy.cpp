@@ -263,13 +263,10 @@ void ingangTillYatzy () {
             case 8:
                 poang = vardeSomYatzy(yatzyhand);
                 break;
-                // Fortsätt för alla kategorier...
             default:
-                std::cout << "Ogiltig kategori vald." << std::endl;
+                cout << "Ogiltig kategori vald." << endl;
                 break;
             }
-
-            // Uppdatera poängtabellen för den aktuella spelaren och kategorin
             yatzyTabell.spelarePoang[spelare][valdKategori - 1] = poang;
         }
     }
