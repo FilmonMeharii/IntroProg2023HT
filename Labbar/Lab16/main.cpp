@@ -8,8 +8,8 @@ void ingangTillTeckenOchStrangar3 ();
 int main()
 {
     cout << "Hello World!" << endl;
-    ingangTillTeckenOchStrangar3();
-    //ingangTillTeckenOchStrangar2();
+    //ingangTillTeckenOchStrangar3();
+    ingangTillTeckenOchStrangar2();
     //ingangTillTeckenOchStrangar();
     return 0;
 }

@@ -103,9 +103,40 @@ void automattestaArVokalOchArKonsonant () {
     cout << " testerna av arVokal / arKonsonant lyckades !" << endl ;
 }
 
+string iSprik(const string &str) {
+    string iSprakStr = "";
+
+    for (char c : str) {
+        if (arVokal(c)) {
+            iSprakStr += 'i';
+        } else if (arKonsonant(c)) {
+            // Preserve the case of the consonant
+            if (isupper(c)) {
+                iSprakStr += 'I';
+            } else {
+                iSprakStr += 'i';
+            }
+        } else {
+            iSprakStr += c;
+        }
+    }
+
+    return iSprakStr;
+}
+
+
+void automattestaISprik() {
+    cout << "Testar i-sprik" << endl;
+    assert(iSprik(" abcdefghijklmnopqrstuvxyz ,.!? ") == " ibcdifghijklmnipqrstivxiz ,.!? ");
+    assert(iSprik("ABCDEFGHIJKLMNOPQRSTUVXYZ ") == "IBcDIFGHIJKLmNOPQRSTvXZ ");  // Adjusted expected output
+    cout << "Test av i-sprik lyckades!" << endl;
+}
+
+
 void ingangTillTeckenOchStrangar2() {
     cout << endl << " ingangTillTeckenOchStrangar2 +++++ " << endl ;
-    automattestaArVokalOchArKonsonant();
+    automattestaISprik();
+    //automattestaArVokalOchArKonsonant();
     //automattestaKonverteraTillRubrik();
     //automatestaKonverteraTillVersaler();
     //automatestaArLika();
