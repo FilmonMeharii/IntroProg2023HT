@@ -32,19 +32,6 @@ void automattestaVersalstrang () {
     assert( versalstrang ("abc ABC 123 .,- xyz") == "ABC ABC 123 .,- XYZ" );
     cout << " test av versalStrang lyckades !" << endl ;
 }
-/*
-string rubrikstrang ( const string & str ){
-    string rubrik;
-    for(int i=0; i<str.length(); ++i){
-        if(i==0 || str[i-1] == ' '){
-            rubrik +=toupper(str[i]);
-        }else{
-            rubrik += tolower(str[i]);
-        }
-    }
-    return rubrik;
-}
-*/
 
 string rubrikstrang(const string &str) {
     string rubrik;
@@ -57,7 +44,6 @@ string rubrikstrang(const string &str) {
     }
     return rubrik;
 }
-
 void automattestaRubrikstrang () {
     cout << " testar rubrikstrang " << endl ;
     assert(rubrikstrang("ha en BRA DAG!") == "Ha En Bra Dag!");
@@ -66,8 +52,29 @@ void automattestaRubrikstrang () {
     cout << " test av rubrikstrang lyckades !" << endl ;
 }
 
+string trimmad ( const string & str ) {
+    string trimmad;
+    for(int i = 0; i<str.size(); ++i){
+        if(str[i-1]==' ' || str[0]== ' '){
+            trimmad =-str[i-1];
+        }else trimmad +=str[i];
+    }
+    return trimmad;
+}
+void automattestaTrimmad () {
+    cout << " testar trimmad " << endl ;
+    assert ( trimmad (" Ha en bra dag ! ") == "Ha en bra dag!" ) ;
+    assert ( trimmad (" A B C ") == "A B C" ) ;
+    assert ( trimmad (" ") == "" );
+    assert ( trimmad ("") == "" ) ;
+    assert ( trimmad (" abc ") == " abc " );
+    cout << " testen av trimmad lyckades !" << endl ;
+}
+
+
 void ingangTillTeckenOchStrangar3 () {
     cout << endl << " ingangTillTeckenOchStrangar +++++ " << endl ;
-    automattestaRubrikstrang();
+    automattestaTrimmad();
+    //automattestaRubrikstrang();
     //demoAvString();
 }
