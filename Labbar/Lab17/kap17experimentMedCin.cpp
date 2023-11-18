@@ -1,5 +1,7 @@
 # include <iostream>
 # include <string>
+#include <limits>
+#include <sstream>
 
 
 using namespace std ;
@@ -40,10 +42,37 @@ void testaCinIntMedFalhantering(){
         }
     }
 }
+double flyttalFranUppmaning ( const string uppmaning ){
+    double resultat;
+    string inmatning;
+    while (true) {
+        cout << uppmaning;
+        getline(cin, inmatning);
+
+        stringstream ss(inmatning);
+        if(ss >> resultat){
+            if(ss.eof()){
+                break;
+            }
+        }
+        cout << "Ogiltigt tal, forsok igen" << endl;
+    }
+    return resultat;
+}
+void provaFlyttalFranUppmaning () {
+    const double bokPris = flyttalFranUppmaning (" Hur manga kronor kostar boken?") ;
+    const double antalSidor = flyttalFranUppmaning (" Hur manga sidor har boken?") ;
+    const double procentAttLasa = flyttalFranUppmaning (" Hur manga procent av sidorna kommer du att lasa? ");
+    cout << "Du har angett att boken kostar " << bokPris <<" kronor "
+         << ", och att den har " << antalSidor <<" sidor "
+         << ", och att du tanker lasa " << procentAttLasa << "%" << endl
+            ;
+}
 
 
 void ingangTillExperimentMedCin () {
     cout << " ingangTillExperimentMedCin ." << endl ;
-    testaCinIntMedFalhantering();
+    provaFlyttalFranUppmaning();
+    //testaCinIntMedFalhantering();
     //testaCinInt();
 }
