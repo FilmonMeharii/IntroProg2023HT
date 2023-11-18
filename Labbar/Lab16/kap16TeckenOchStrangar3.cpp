@@ -20,8 +20,21 @@ void demoAvString(){
     str2 += " da!";
     cout <<str2 <<endl;
 }
+string versalstrang ( const string & str ){
+    string ch = str;
+    for (int i = 0; i < str.length(); ++i) {
+        ch[i] = toupper(str[i]);
+    }
+    return ch;
+}
+void automattestaVersalstrang () {
+    cout << " testar versalStrang " << endl;
+    assert( versalstrang ("abc ABC 123 .,- xyz") == "ABC ABC 123 .,- XYZ" );
+    cout << " test av versalStrang lyckades !" << endl ;
+}
 
 void ingangTillTeckenOchStrangar3 () {
     cout << endl << " ingangTillTeckenOchStrangar +++++ " << endl ;
-    demoAvString();
+    automattestaVersalstrang();
+    //demoAvString();
 }
