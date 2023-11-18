@@ -32,9 +32,42 @@ void automattestaVersalstrang () {
     assert( versalstrang ("abc ABC 123 .,- xyz") == "ABC ABC 123 .,- XYZ" );
     cout << " test av versalStrang lyckades !" << endl ;
 }
+/*
+string rubrikstrang ( const string & str ){
+    string rubrik;
+    for(int i=0; i<str.length(); ++i){
+        if(i==0 || str[i-1] == ' '){
+            rubrik +=toupper(str[i]);
+        }else{
+            rubrik += tolower(str[i]);
+        }
+    }
+    return rubrik;
+}
+*/
+
+string rubrikstrang(const string &str) {
+    string rubrik;
+    for(int i=0; i<str.size(); i++){
+        if(str[i-1]==' ' || i==0){
+            rubrik += toupper(str[i]);
+        }else{
+            rubrik += tolower(str[i]);
+        }
+    }
+    return rubrik;
+}
+
+void automattestaRubrikstrang () {
+    cout << " testar rubrikstrang " << endl ;
+    assert(rubrikstrang("ha en BRA DAG!") == "Ha En Bra Dag!");
+    assert(rubrikstrang("ha en BRA DAG!")=="Ha En Bra Dag!");
+    assert ( rubrikstrang ("") == "" );
+    cout << " test av rubrikstrang lyckades !" << endl ;
+}
 
 void ingangTillTeckenOchStrangar3 () {
     cout << endl << " ingangTillTeckenOchStrangar +++++ " << endl ;
-    automattestaVersalstrang();
+    automattestaRubrikstrang();
     //demoAvString();
 }
