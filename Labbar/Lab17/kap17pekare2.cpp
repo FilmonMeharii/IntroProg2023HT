@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cassert>
+#include <iomanip>
+#include <cstring>
 
 using namespace std;
 
@@ -82,9 +84,41 @@ void testaArrayfunktionernaP () {
     cout << " testar av arrayfunktionerna -P lyckades " << endl ;
 }
 
+char* cstrangkopia(const char *str){
+    size_t length = _mbstrlen(str) + 1;
+    char* copy = new char [length];
+    strncpy(copy, str,length);
+    return copy;
+}
+char* cstrangFranUppmaning(const char* uppmaning){
+    cout << uppmaning;
+    char str[100];
+    cin >> setw(100)>> str;
+    return cstrangkopia(str);
+}
+void provaCstrangFranUppmaning(){
+    const char* fornamn = cstrangFranUppmaning("Ditt fornamn: ");
+    const char* efternamn = cstrangFranUppmaning("Ditt efternamn: ");
+
+    cout << "Hej "<< fornamn << " " << efternamn << "!"<< endl;
+    delete [] fornamn;
+    delete [] efternamn;
+}
+
+void demoAvReferensanrop ( int & x){
+    x *= 2;
+    cout << "x ar nu " << x << endl ;
+}
+void provaReferensanrop () {
+    int a = 10;
+    demoAvReferensanrop (a) ;
+    cout << "a ar nu " << a << endl ;
+}
 void ingangTillPekare2(){
     cout << "Ingang till pekare2 +++++++ "<< endl;
-
-    testaArrayfunktionernaP();
+    provaReferensanrop();
+    //provaCstrangFranUppmaning();
+    //testaArrayfunktionernaP();
     //provaFyllMedVarde();
+    cout << endl;
 }
