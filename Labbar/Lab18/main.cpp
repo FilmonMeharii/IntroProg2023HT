@@ -2,11 +2,12 @@
 
 using namespace std;
 
-void ingangTillExperimentMedCin();
-
+void ingangTillExperimentMedCin1();
+void ingangTillExperimentMedCin2 ();
 int main()
 {
     cout << "Hello World!" << endl;
-    ingangTillExperimentMedCin();
+     ingangTillExperimentMedCin2();
+    //ingangTillExperimentMedCin1();
     return 0;
 }

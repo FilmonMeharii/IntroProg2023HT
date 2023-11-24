@@ -70,8 +70,8 @@ void provaFlyttalFranUppmaning () {
 }
 
 
-void ingangTillExperimentMedCin () {
-    cout << " ingangTillExperimentMedCin ." << endl ;
+void ingangTillExperimentMedCin1 () {
+    cout << " ingangTillExperimentMedCin1 ." << endl ;
     provaFlyttalFranUppmaning();
     //testaCinIntMedFalhantering();
     //testaCinInt();
