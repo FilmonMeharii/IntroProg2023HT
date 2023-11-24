@@ -91,10 +91,22 @@ void automattestaStrangfunktionerP () {
     assert ( arLikaP ( tom , "") );
     cout << " testen av strangfunktionerna -P lyckades !" << endl ;
 }
+void skrivStrangar ( const char ** strangar , int antal ) {
+    for(int i=0; i<antal; i++)
+        cout <<strangar[i] << endl;
+}
+void provaSkrivStrangar () {
+    const int antal = 7;
+    const char * dagnamn [ antal ] = { "mandag ", " tisdag ", " onsdag ",
+                                       " torsdag ", " fredag ", "lordag ", "sondag " };
+    skrivStrangar ( dagnamn , antal );
+}
 
-void ingangTillPekare(){
+
+void ingangTillPekare1(){
     cout << "Ingang till pekare +++++++ "<< endl;
-    automattestaStrangfunktionerP();
+   provaSkrivStrangar();
+    //automattestaStrangfunktionerP();
     //automattestaLangd();
     //ovaPaPekarnotation();
 }
