@@ -3,6 +3,7 @@
 using namespace std;
 
 void ingangTillExperimentMedCin();
+
 int main()
 {
     cout << "Hello World!" << endl;
