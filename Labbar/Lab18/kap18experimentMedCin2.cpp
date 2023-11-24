@@ -8,6 +8,26 @@ using namespace std ;
 
 void  utforBerakning(string uttryck){
     cout << "todo: berakna " << uttryck << endl;
+    int a,b;
+    char op;
+
+    istringstream datastrom(uttryck);
+    datastrom >> a >> op >> b;
+    bool ok = !datastrom.fail();
+    if(ok){
+        char dum;
+        datastrom >> dum;
+        ok = datastrom.fail();
+    }
+    if(ok){
+        if(op == '+') cout << a+b << endl;
+        else if(op == '*') cout << a*b << endl;
+        else if(op == '/') cout << a/b << endl;
+        else if(op == '%') cout << a%b << endl;
+        else ok = false;
+    }
+    if(!ok)
+        cout << "Fattar ej!" << endl;
 }
 
 void huvudLoop(){
