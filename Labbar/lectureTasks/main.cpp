@@ -97,10 +97,6 @@ void kommenteraTempraturen(double tempratur){
     else cout << "Drick garna nagot varmt. " ;
     cout << "Ha en bra dag!" << endl;
 }
-
-
-
-
 void some() {
     // Skapa en variabel x med värdet 4
     int x = 4;
@@ -123,13 +119,12 @@ void some() {
     // Skriv ut resultatet
     std::cout << produkt;
 }
-
+void ifOchSwitch();
 
 int main()
 {
     cout << "Hello World!" << endl;
-
-    some();
+    ifOchSwitch();
     //    kommenteraTempraturen(20);
     //    cout << endl;
     //    kommenteraTempraturen(30);
