@@ -85,11 +85,57 @@ void skrivUtFaktura(){
         << "Totalt pris:       " << setw(9) << prisMedMoms << endl
         <<"Varv moms:      " << setw(9) << moms << endl;
 }
+void kommenteraTempraturen(double tempratur){
+    cout << "Hej idag ar det " << tempratur << " grader varmt. ";
+    if(tempratur > 25){
+        cout << "Det ar ganska varmt. " << endl;
+        cout << "Du bor dricka mycket vatten. " << endl;
+        if(tempratur >=40)
+            cout << "Hall dig inomhus om du kan. "<< endl;
+        else cout << "Perfekt vader for uthomhus aktiviteter " << endl;
+    }
+    else cout << "Drick garna nagot varmt. " ;
+    cout << "Ha en bra dag!" << endl;
+}
+
+
+
+
+void some() {
+    // Skapa en variabel x med värdet 4
+    int x = 4;
+
+    // Skapa en pekare pX och låt den peka på x
+    int *pX = &x;
+
+    // Ändra värdet på platsen där pX pekar till 3
+    *pX = 3;
+
+    // Skapa en pekare pY och låt den peka på x (samma plats som pX)
+    int *pY = &x;
+
+    // Ändra värdet på platsen där pY pekar till 5
+    *pY = 5;
+
+    // Multiplicera värdet på platsen där pX pekar med värdet av x
+    int produkt = (*pX) * x;
+
+    // Skriv ut resultatet
+    std::cout << produkt;
+}
+
 
 int main()
 {
     cout << "Hello World!" << endl;
-    skrivUtFaktura();
+
+    some();
+    //    kommenteraTempraturen(20);
+    //    cout << endl;
+    //    kommenteraTempraturen(30);
+    //    cout << endl;
+    //    kommenteraTempraturen(50);
+    //skrivUtFaktura();
     //count();
     //flyttalstyper();
     //provaStatic1();
