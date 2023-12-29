@@ -74,7 +74,7 @@ void jamforFleraIntegralBerakningar(){
 double kvadratroten(double x){
     double k=0;
     double area =1.0;
-    for(float i =0; i<10; ++i){
+    for(int i =0; i<10; ++i){
         k=x/area;
         area =(area+k)/2.0;
     }

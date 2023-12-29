@@ -120,11 +120,14 @@ void some() {
     std::cout << produkt;
 }
 void ifOchSwitch();
+void part3();
+
 
 int main()
 {
     cout << "Hello World!" << endl;
-    ifOchSwitch();
+    part3();
+    //ifOchSwitch();
     //    kommenteraTempraturen(20);
     //    cout << endl;
     //    kommenteraTempraturen(30);

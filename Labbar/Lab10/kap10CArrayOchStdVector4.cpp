@@ -8,7 +8,7 @@ using namespace std ;
 
 vector<double> vek{4,3, 5.0, 3.2};
 void forsokAndraVektornsVarden(vector<int>vek){
-    for (int i = 0; i< vek.size(); i++)
+    for (size_t i = 0; i< vek.size(); i++)
         vek[i] =42;
 }
 void anropaForokAndraVektornsVarden(){
